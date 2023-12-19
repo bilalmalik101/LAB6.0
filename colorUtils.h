@@ -10,7 +10,7 @@ typedef enum {
 // assign own value in data using enumrator
 typedef enum{
   ERROR;
-  No_error=0;
+  No_error =0;
 }Error;
 
 #endif /* MODE_H */

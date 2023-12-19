@@ -24,7 +24,16 @@ if (mode == AVERAGE){
 else if(mode == LIGHTNESS){
   *r=*g=*b=(max(*r,*g,*b)+min(*r,*g,*b))/2;
 }
-//
+//luminosity technique
+else if(mode == LUMINOSITY){
+  *r=*g=*b=round(0.21* *r+0.72* *g+0.07* *b);
+}
+return No_error;
+}
+//function to check sephia condition
+int checkSephia(float value){
+  return (value<255) ? value : 255;
+  
 }
 
 int toSepia(int *r, int *g, int *b) {
