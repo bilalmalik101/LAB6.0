@@ -33,9 +33,21 @@ return No_error;
 //function to check sephia condition
 int checkSephia(float value){
   return (value<255) ? value : 255;
-  
 }
-
-int toSepia(int *r, int *g, int *b) {
-  //TODO: implement
+//to return error value
+Error toSepia(int *r, int*g , int*b){
+if(r == NULL || g == NULL || b == NULL){
+  return ERROR;
+}
+float red = *r, green= *g, blue = *b;
+//to red
+*r = round(0.393 * red + 0.769 * green + 0.189 * blue);
+*r = checkSephia(*r);
+// to green
+*g = round(0.349*red + 0.686*green + 0.168*blue);
+*g = checkSephia(*g);
+// to blue
+*b = round(0.272*red+0.686*green+0.131*blue);
+*b =checkSephia(*b);
+return No_error ;
 }
